@@ -4,23 +4,32 @@ import OutputComponent from './components/OutputComponent'
 import DefaultComponent from "./components/DefaultComponent";
 import TableComponent from './components/TableComponent';
 import RepeatComponent from "./components/RepeatComponent";
+import SwitchComponent from "./components/SwitchComponent";
+import RangeComponent from "./components/RangeComponent";
+import SelectComponent from "./components/SelectComponent";
 
 
 class DynamicComponent extends Component{
     constructor(props) {
         super(props);
-        switch (props.context.ui) {
+        this.component = this.getComponent(props.context.ui);
+    }
+    getComponent(ui) {
+        switch (ui) {
             case 'output':
-                this.component = OutputComponent;
-                break;
+                return OutputComponent;
             case 'table':
-                this.component = TableComponent;
-                break;
+                return TableComponent;
             case 'repeat':
-                this.component = RepeatComponent;
-                break;
+                return RepeatComponent;
+            case 'switch':
+                return SwitchComponent;
+            case 'range':
+                return RangeComponent;
+            case 'select':
+                return SelectComponent;
             default:
-                this.component = DefaultComponent;
+                return DefaultComponent;
         }
     }
     render() {
