@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class DefaultComponent extends Component{
     render() {
-        return  <div>DefaultComponent: value={this.props.value}</div>;
+        return  <div>{this.props.context.ui}: {this.props.context.label}</div>
     }
 }
 

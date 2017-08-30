@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 
 class OutputComponent extends Component{
+    constructor(props) {
+        super(props);
+        this.value = 0;  // Lookup ref value in Model.
+    }
     render() {
-        return  <div>OutputComponent: value={this.props.value}</div>;
+        return  <div><strong>{this.props.context.label}</strong><br/>{this.value}</div>
     }
 }
 

@@ -18,3 +18,11 @@
     content: none !important;
   }
 }
+
+table {
+  border-collapse: separate;
+  border-spacing: 15px;
+}
+td {
+  text-align: center;
+}
