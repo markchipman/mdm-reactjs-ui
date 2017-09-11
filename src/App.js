@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import TableComponent from "./components/TableComponent";
 import axios from 'axios';
+import ModelService from "./services/ModelService"
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
         axios.get('mini_model_ui_example.json')
             .then(res => {
                 this.setState({controls: res.data.Controls});
+                ModelService.setModel(res.data.Model);
             });
     }
 
